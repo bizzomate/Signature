@@ -20,6 +20,19 @@
             </attributeTypes>
         </property>
 
+        <property key="timeout" type="integer" defaultValue="1000">
+            <caption>Signature timeout</caption>
+            <category>Behaviour</category>
+            <description>Time (in ms) to wait before considering the signature finished after the pen has stopped touching the pad.</description>
+        </property>
+
+        <property key="onChangeMF" type="microflow" required="false" defaultValue="">
+            <caption>Microflow</caption>
+            <category>Behaviour</category>
+            <description>Microflow to trigger when the timeout is reached and the signature is saved.</description>
+            <returnType type="Void"></returnType>
+        </property>
+
         <property key="resetcaption" type="translatableString">
             <caption>Reset caption</caption>
             <category>Customization</category>
@@ -39,12 +52,6 @@
             <caption>Pen size</caption>
             <category>Customization</category>
             <description>Pen size</description>
-        </property>
-
-        <property key="timeout" type="integer" defaultValue="1000">
-            <caption>Signature timeout</caption>
-            <category>Customization</category>
-            <description>Time (in ms) to wait before considering the signature finished after the pen has stopped touching the pad.</description>
         </property>
 
         <property key="height" type="integer" defaultValue="500">

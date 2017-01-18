@@ -362,6 +362,24 @@ require([
             if (this._mxObject) {
                 if (this._mxObject.has(this.dataUrl)) {
                     this._mxObject.set(this.dataUrl, this._canvas.toDataURL());
+                    if (this.onChangeMF && this.onChangeMF.trim().length > 0){
+                      mx.data.action({
+                        params: {
+                          applyto: "selection",
+                          actionname: this.onChangeMF,
+                          guids: [this._mxObject.getGuid()]
+                        },
+                        store: {
+                          caller : this.mxform
+                        },
+                        callback: function(obj) {
+                          //no need to act on callback
+                        },
+                        error: lang.hitch(this, function(error) {
+                          logger.error(this.id + ".finalizeSignature: error on executing MF.");
+                        })
+                      }, this);
+                    }
                 } else {
                     logger.error(this.id + ".finalizeSignature: no dataUrl attribute found.");
                 }
